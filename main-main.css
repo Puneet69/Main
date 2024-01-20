@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #E3F2FD;
+}
+
+.navbarmain {
+    display: flex;
+    flex-direction: column;
+    gap: 130px;
+    position: relative;
+}
+
+.navbarasli {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    background: #724ae8;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    animation: fadeInDown 0.5s ease-in-out;
+    margin-bottom: 20px; /* Add some margin at the bottom */
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+}
+
+.menu ul li {
+    margin-right: 20px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.menu ul li a:hover {
+    color: #ffc107;
+}
+
+.content {
+    padding: 16px;
+    animation: fadeInUp 1s ease-in-out;
+    margin-top: 20px; /* Add some margin at the top */
+}
+
+/* Chatbot Toggle Button Styling */
+.chatbot-toggle {
+    position: fixed;
+    right: 40px;
+    bottom: 35px;
+    height: 50px;
+    width: 50px;
+    background: #724ae8;
+    color: #fff;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.show-chatbot .chatbot-toggle {
+    transform: rotate(90deg);
+}
+
+.chatbot-toggle span {
+    position: absolute;
+}
+
+.show-chatbot .chatbot-toggle span:first-child,
+.chatbot-toggle span:last-child {
+    opacity: 0;
+}
+
+.show-chatbot .chatbot-toggle span:last-child {
+    opacity: 1;
+}
+
+/* Chatbot Styling */
+.chatbot {
+    background: #ffff;
+    width: 420px;
+    position: fixed;
+    right: 40px;
+    transform: scale(0.5);
+    opacity: 0;
+    bottom: 100px;
+    border-radius: 15px;
+    transform-origin: bottom right;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    pointer-events: none;
+    transition: all 0.1s ease;
+}
+
+.show-chatbot .chatbot {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Chatbot Header Styling */
+.chatbot header {
+    background: #724ae8;
+    padding: 16px 0;
+    text-align: center;
+    position: relative;
+}
+
+.chatbot header h2 {
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.chatbot header span {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    transform: translateY(-50%);
+}
+
+/* Chatbox Styling */
+.chatbot .chatbox {
+    height: 510px;
+    overflow-y: auto;
+    padding: 30px 20px 100px;
+}
+
+.chatbox .chat {
+    display: flex;
+}
+
+.chatbox .chat p {
+    background: #724ae8;
+    padding: 12px 16px;
+    border-radius: 10px 10px 0 10px;
+    color: #fff;
+    white-space: pre-wrap;
+    max-width: 75%;
+    font-size: 0.95rem;
+}
+
+.chatbox .incoming p {
+    color: black;
+    background: #f2f2f2;
+    border-radius: 10px 10px 10px 0;
+}
+
+.chatbox .outgoing {
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+
+.chatbox .incoming span {
+    height: 32px;
+    width: 32px;
+    color: #fff;
+    background: #724ae8;
+    text-align: center;
+    line-height: 32px;
+    border-radius: 4px;
+    margin: 0 10px 7px 0;
+    align-self: flex-end;
+}
+
+/* Chat Input Styling */
+.chatbot .chat-input {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid #ccc;
+    background: #ffff;
+    gap: 195px;
+    width: 100%;
+    padding: 5px 20px;
+}
+
+.chat-input textarea {
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    resize: none;
+    padding: 16px 15px 16px 0;
+    height: 55px;
+}
+
+.chat-input span {
+    color: #724ae8;
+    font-size: 1.35rem;
+    cursor: pointer;
+    align-self: flex-end;
+    height: 55px;
+    line-height: 55px;
+    visibility: hidden;
+}
+
+.chat-input textarea:valid~span {
+    visibility: visible;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
